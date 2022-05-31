@@ -1,18 +1,16 @@
 package com.serke.inventory.repositories;
 
 import com.serke.inventory.models.Device;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface DeviceRepository {
-
-    List<Device> findAll();
-
-    Optional<Device> findById(Long id);
+public interface DeviceRepository extends JpaRepository<Device, Long> {
 
     List<Device> findByOwner(Long userId);
 
-    void update(Device device);
+    @Query("SELECT d from Device d where d.owner is null")
+    List<Device> findFreeDevices();
 
 }

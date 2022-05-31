@@ -29,14 +29,14 @@ public class DeviceServiceImpl implements DeviceService {
     public void assignUser(Long deviceId, Long userId) {
         Device device = this.deviceRepository.findById(deviceId).orElseThrow();
         device.setOwner(userId);
-        this.deviceRepository.update(device);
+        this.deviceRepository.save(device);
     }
 
     @Override
     public void unlock(Long deviceId) {
         Device device = this.deviceRepository.findById(deviceId).orElseThrow();
         device.setOwner(null);
-        this.deviceRepository.update(device);
+        this.deviceRepository.save(device);
     }
 
 }
