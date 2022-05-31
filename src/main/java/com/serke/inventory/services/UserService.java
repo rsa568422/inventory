@@ -6,8 +6,8 @@ import java.util.Optional;
 
 public interface UserService {
 
-    Optional<User> loginWithUserName(String userName);
+    Optional<User> loginWithUserName(String userName, String password);
 
-    Optional<User> loginWithEmail(String email);
+    Optional<User> loginWithEmail(String email, String password);
 
 }
