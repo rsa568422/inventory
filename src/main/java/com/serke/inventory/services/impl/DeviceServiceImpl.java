@@ -4,10 +4,12 @@ import com.serke.inventory.models.Device;
 import com.serke.inventory.repositories.DeviceRepository;
 import com.serke.inventory.services.DeviceService;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 @AllArgsConstructor
 public class DeviceServiceImpl implements DeviceService {
 
