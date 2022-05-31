@@ -8,19 +8,20 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
 
     @Override
-    public Optional<User> loginWithUserName(String userName) {
+    public Optional<User> loginWithUserName(String userName, String password) {
         return this.userRepository.findByUserName(userName);
     }
 
     @Override
-    public Optional<User> loginWithEmail(String email) {
-        return null;
+    public Optional<User> loginWithEmail(String email, String password) {
+        return Optional.empty();
     }
 
 }

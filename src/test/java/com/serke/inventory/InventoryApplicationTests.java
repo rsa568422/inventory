@@ -2,10 +2,12 @@ package com.serke.inventory;
 
 import com.serke.inventory.models.Device;
 import com.serke.inventory.repositories.DeviceRepository;
-import com.serke.inventory.services.impl.DeviceServiceImpl;
-import org.junit.jupiter.api.BeforeEach;
+import com.serke.inventory.repositories.UserRepository;
+import com.serke.inventory.services.DeviceService;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,15 +18,14 @@ import static org.mockito.Mockito.*;
 @SpringBootTest
 class InventoryApplicationTests {
 
-	private DeviceServiceImpl service;
+	@Autowired
+	private DeviceService service;
 
+	@MockBean
 	private DeviceRepository deviceRepository;
 
-	@BeforeEach
-	void setUp() {
-		this.deviceRepository = mock(DeviceRepository.class);
-		this.service = new DeviceServiceImpl(this.deviceRepository);
-	}
+	@MockBean
+	private UserRepository userRepository;
 
 	@Test
 	void contextLoads() {
